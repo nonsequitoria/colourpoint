@@ -3,7 +3,7 @@ A simple colour tracking framework and experiment runner for Processing. It was 
 
 ## Installation and Requirements
 
-* Download and install (Processing)[www.processing.org/download]. Only tested with Processing 3.2.1.
+* Download and install [Processing](www.processing.org/download). Only tested with Processing 3.2.1.
 * Add these libraries to you Processing installation:
   * Video Library
   * OpenCV for Processing
