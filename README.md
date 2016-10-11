@@ -25,6 +25,10 @@ Keyboard shortcuts are in the "settings" tab when you open colourpoint:
  1, 2, 3, ... - choose technique
 ```
 
+## Issues
+
+* There's a bug when you run an experiment and the full log filename is not set. For a workaround, just press `E` to *reset* the experiment state before starting the experiment.
+
 ## More Information
 
 * [Undergraduate Research Opportunities Conference (UROC)](https://cs.uwaterloo.ca/conferences/uroc/2016)
