@@ -10,8 +10,20 @@ A simple colour tracking framework and experiment runner for Processing. It was 
 
 ## Usage
 
-* Keyboard shortcuts are in the "settings" tab when you open colourpoint.
 * To create new pointing techniques, inherit from PointingTechnique: the ColourPoint class is an example technique.
+* Log data during an experiment by providing a name for `experimentParticipant`.
+* Process logs into a single CSV for analysis of speed and accuracy using the *analysis* sketch.
+
+Keyboard shortcuts are in the "settings" tab when you open colourpoint:
+```
+ e - toggle experiment view (E to reset)
+ d - toggle demo view (D to randomize)
+ c - toggle colour calibration (C to reset)
+ s - save settings
+ (drag rectangle with mouse to pick area to sample colour)
+ SPACE - toggle debug information
+ 1, 2, 3, ... - choose technique
+```
 
 ## More Information
 
