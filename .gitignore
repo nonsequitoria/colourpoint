@@ -1,3 +1,5 @@
+analysis/logs*/
+colourtrack/logs/
 .DS_Store
 applet
 application.linux32
