@@ -27,7 +27,7 @@ Keyboard shortcuts are in the "settings" tab when you open colourpoint:
 
 ## More Information
 
-* [Undergraduate Research Opportunities Conference (UROC)](https://cs.uwaterloo.ca/conferences/uroc))
+* [Undergraduate Research Opportunities Conference (UROC)](https://cs.uwaterloo.ca/conferences/uroc/2016)
 * [The UWaterloo Computer Science Human-Computer Interaction Lab](http://hci.cs.uwaterloo.ca/)
 * [Cheriton School of Computer Science at The University of Waterloo](https://cs.uwaterloo.ca/)
 * [Daniel Vogel's Research](http://www.nonsequitoria.com/)
