@@ -32,6 +32,10 @@ class PointingTechnique {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+// This technique tracks a shape with narrow width 
+// compared to its height (low aspect ratio)
+// when the aspect ratio is closer to 1, then it
+// clicks down
 class RatioClick extends PointingTechnique {
 
   RatioClick() {

@@ -3,14 +3,14 @@
 // Keyboard Shortcuts
 // - - - - - - - - - - - - - -
 /*
- e - toggle experiment view (E to reset)
- d - toggle demo view (D to randomize)
- c - toggle colour calibration (C to reset)
- s - save settings
- (drag rectangle with mouse to pick area to sample colour)
- SPACE - toggle debug information
  1, 2, 3, ... - choose technique
- 
+ d - toggle demo view (D to randomize)
+ e - toggle experiment view (E to reset)
+ c - toggle colour calibration (C to reset)
+     (press 1 or 2 to switch colour to calibrate)
+     (drag rectangle with mouse to pick area to sample colour)
+ s - save settings
+ SPACE - toggle debug information
  */
 
 // Useful Settings
@@ -32,11 +32,12 @@ int processHeight = captureHeight;
 // name of person clicking on targets in the experiment
 // (leave blank to not log during experiment)
 String experimentParticipant = "";
+
 // filename for experiment target script
 String scriptFilename = "data/script.txt";
 
 
-
+// handles the keyboard even to pick from available techniques
 void pickTechnique(char k) {
 
   switch (k) {

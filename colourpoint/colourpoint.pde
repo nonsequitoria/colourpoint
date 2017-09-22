@@ -1,6 +1,10 @@
 
+// look at RatioClick PointingTechnique too
+// (in "Technique" tab)
 
-// start from this 
+
+// start from this example ColourPoint techniques
+// (give it a catch name too)
 class ColourPoint extends PointingTechnique {
 
   ColourPoint() {

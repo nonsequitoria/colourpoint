@@ -1,26 +1,23 @@
 
-
-
 void setup() {
 
   //size(640, 480);
 
   String[] files = listFilenames(sketchPath("logs"));
-  
+
   PrintWriter out = createWriter("logs/data.csv"); 
 
- out.println("tech,part,block,target,time,error");
+  out.println("tech,part,block,target,time,error");
 
   String part;
   String tech;
   int block = 0;
   int lastTime = 0;
-  
+
   int wasError = 0;
 
   for (String f : files) {
 
-    
     if (!f.contains("txt")) 
       continue;
     String[] tokens = f.trim().split(" ");
@@ -30,8 +27,6 @@ void setup() {
     println(f);
 
     String[] lines = loadStrings("logs/" + f);
-
-
 
     for (String l : lines) {
       //println(l);
@@ -49,7 +44,7 @@ void setup() {
       } else if (e.equals("error")) {
         wasError = 1;
       } else if (e.equals("target")) {
-    
+
         String s = tech + "," + part + "," + block + "," + i + "," + (t - lastTime) + "," + wasError;
         println(s);
         out.println(s);
@@ -58,16 +53,10 @@ void setup() {
       }
     }
   }
-  
+
   out.flush();
   out.close();
 }
-
-
-
-
-
-
 
 
 // This function returns all the files in a directory as an array of Strings  

@@ -7,8 +7,8 @@ OpenCV opencv;
 
 
 
-PImage img = new PImage(mainWidth, mainHeight);
-PImage lastFrame = new PImage(mainWidth, mainHeight);
+PImage img;
+PImage lastFrame;
 
 
 static final int TASK_NONE = 0;
@@ -30,9 +30,12 @@ String settingsFilename = "data/settings.json";
 
 
 void setup() {
-
+  // create window
   surface.setResizable(true);
   surface.setSize(mainWidth * 2, int(mainHeight));
+  
+  PImage img = new PImage(mainWidth, mainHeight);
+  PImage lastFrame = new PImage(mainWidth, mainHeight);
 
   frame = new Capture(this, captureWidth, captureHeight);
   opencv = new OpenCV(this, processWidth, processHeight);
