@@ -41,20 +41,24 @@ The underlying algorithm uses very simple HLS threhsolding, so if you add the wr
 
 ### Running The Experiment
 
-* Log data during an experiment by providing a name for `experimentParticipant`.
-* Process logs into a single CSV for analysis of speed and accuracy using the *analysis* sketch.
+* Log data during an experiment by providing a name for `experimentParticipant` in "settings" tab.
+* Press 'E' to start a new experiment. You can toggle experiment mode using 'e'.
+* Experiment log ('txt' file) will be saved to `colourpoint/logs/` sub directory.
+* Copy logs you want to analyze for speed and accuracy to `analysis/logs/` sub directory, and use *analysis* sketch to process them into a single CSV.
 
-
-## All Keyboard Short Cuts
+## Keyboard Shortcuts
 
 Keyboard shortcuts are in the "settings" tab when you open colourpoint:
 ```
  1, 2, 3, ... - choose technique
- d - toggle demo view (D to randomize)
- e - toggle experiment view (E to reset)
- c - toggle colour calibration (C to reset)
+ d - toggle demo view 
+     (D to randomize)
+ E - start a new experiment
+ e - toggle experiment view
+ c - toggle colour calibration 
      (press 1 or 2 to switch colour to calibrate)
      (drag rectangle with mouse to pick area to sample colour)
+     (C to reset current colour)
  s - save settings
  SPACE - toggle debug information
 ```

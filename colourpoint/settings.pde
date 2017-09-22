@@ -4,11 +4,14 @@
 // - - - - - - - - - - - - - -
 /*
  1, 2, 3, ... - choose technique
- d - toggle demo view (D to randomize)
- e - toggle experiment view (E to reset)
- c - toggle colour calibration (C to reset)
+ d - toggle demo view 
+     (D to randomize)
+ E - start a new experiment
+ e - toggle experiment view
+ c - toggle colour calibration 
      (press 1 or 2 to switch colour to calibrate)
      (drag rectangle with mouse to pick area to sample colour)
+     (C to reset current colour)
  s - save settings
  SPACE - toggle debug information
  */
