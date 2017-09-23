@@ -3,7 +3,7 @@ A simple colour tracking framework and experiment runner for Processing. It was 
 
 ## Installation and Requirements
 
-1. Download and install [Processing](www.processing.org/download). Tested with Processing 3.3.6.
+1. Download and install [Processing](https://www.processing.org/download/). Tested with Processing 3.3.6.
 
 2. Add these libraries to you Processing installation:
   * Video Library
