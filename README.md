@@ -6,8 +6,8 @@ A simple colour tracking framework and experiment runner for Processing. It was 
 1. Download and install [Processing](https://www.processing.org/download/). Tested with Processing 3.3.6.
 
 2. Add these libraries to you Processing installation:
-  * Video Library
-  * OpenCV for Processing
+  * "Video" (GStreamer-based ...)
+  * "OpenCV for Processing"
 
 ## Usage
 
