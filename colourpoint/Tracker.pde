@@ -177,10 +177,20 @@ class Tracker {
         contour.setPolygonApproximationFactor(5);
         Contour approxContour = contour.getPolygonApproximation();
         b.simplePoints =  approxContour.getPoints();
-        
+
         b.convexHullPoints = contour.getConvexHull().getPoints();
 
         for (PVector v : b.points) {
+          v.x *= scale;
+          v.y *= scale;
+        }
+
+        for (PVector v : b.convexHullPoints) {
+          v.x *= scale;
+          v.y *= scale;
+        }
+
+        for (PVector v : b.simplePoints) {
           v.x *= scale;
           v.y *= scale;
         }

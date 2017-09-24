@@ -51,20 +51,23 @@ void pickTechnique(char k) {
     technique = new MousePoint();
     break;
   case '2':
-    technique = new RatioClick();
+    technique = new ShowBlobFeatures();
     break;
   case '3':
+    technique = new RatioClick();
+    break;
+  case '4':
     technique = new ColourPoint();
     break;
     
   // add your techniques here ...
-  case '4':
-    //technique = ;
-    break;
   case '5':
     //technique = ;
     break;
   case '6':
+    //technique = ;
+    break;
+  case '7':
     //technique = ;
     break;
   }

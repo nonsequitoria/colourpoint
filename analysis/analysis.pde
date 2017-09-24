@@ -1,11 +1,22 @@
+// this is a very rough sketch to process the logs
+// in a single "data.csv" file
+
+
+boolean dropBoxDir = false;
+String dir = "";
 
 void setup() {
 
-  //size(640, 480);
+  if (dropBoxDir) {
+    // set this to the absolute path of a Dropbox file request folder
+    dir = "";
+  } else {
+    dir = sketchPath("logs");
+  }
 
-  String[] files = listFilenames(sketchPath("logs"));
+  String[] files = listFilenames(dir);
 
-  PrintWriter out = createWriter("logs/data.csv"); 
+  PrintWriter out = createWriter(dir + "/data.csv"); 
 
   out.println("tech,part,block,target,time,error");
 
@@ -13,25 +24,34 @@ void setup() {
   String tech;
   int block = 0;
   int lastTime = 0;
-
   int wasError = 0;
 
   for (String f : files) {
 
     if (!f.contains("txt")) 
       continue;
-    String[] tokens = f.trim().split(" ");
-    part = tokens[1];
-    tech = tokens[0];
 
-    println(f);
+    if (dropBoxDir) {
+      // assuming filename is pattern "Name - technique participant XXXXXXXXX.txt"
+      String fn = f.trim().split("-")[1]; //[1];
+      String[] tokens = fn.trim().split(" ");
+      tech = tokens[0];
+      part = tokens[1].toLowerCase();
+    } else {
+      String[] tokens = f.trim().split(" ");
+      // assuming filename is pattern "technique participant XXXXXXXXX.txt"
+      tech = tokens[0];
+      part = tokens[1].toLowerCase();
+    }
 
-    String[] lines = loadStrings("logs/" + f);
+    println(tech, part);
+
+    String[] lines = loadStrings(dir + "/" + f);
 
     for (String l : lines) {
       //println(l);
 
-      tokens = l.split(",");
+      String[] tokens = l.split(",");
       int t = int(tokens[0]);
       String e = tokens[1];
       int i = int(tokens[2]);
@@ -62,7 +82,7 @@ void setup() {
 // This function returns all the files in a directory as an array of Strings  
 String[] listFilenames(String dir) {
   File file = new File(dir);
-  println(file);
+  //println(file);
   if (file.isDirectory()) {
     String names[] = file.list();
     return names;

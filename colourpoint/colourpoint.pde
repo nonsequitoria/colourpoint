@@ -2,9 +2,8 @@
 // look at RatioClick PointingTechnique too
 // (in "Technique" tab)
 
-
 // start from this example ColourPoint techniques
-// (give it a catch name too)
+// (give it a catchy name too)
 class ColourPoint extends PointingTechnique {
 
   ColourPoint() {
@@ -24,8 +23,8 @@ class ColourPoint extends PointingTechnique {
 
       float ratio = b.bb.width / float(b.bb.height);
 
-      move(x, y + 50);
-      
+      move(x, y);
+
       float threshold = 0.8;
 
       // visualize feedback  
@@ -33,18 +32,6 @@ class ColourPoint extends PointingTechnique {
       strokeWeight(1);
       noFill();
       ellipse(x, y, threshold * 100, threshold * 100);
-
-      if (ratio > threshold) {
-        if (!isDown) {
-          down(x, y); 
-          isDown = true;
-        }
-      } else {
-        if (isDown) {
-          up(x, y);
-          isDown = false;
-        }
-      }
 
       // visualize feedback
       ellipse(x, y, ratio * 100, ratio * 100);
