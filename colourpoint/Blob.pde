@@ -1,9 +1,11 @@
 
+// data strcuture for each blob found in the scene
 class Blob {
+  
+  // the colour index of the blob
   int colour;
-
+  // no blob detected
   boolean empty = true;
-
   // centroid of blob points
   float x;
   float y;

@@ -1,4 +1,7 @@
-
+/* 
+ * Target
+ * A simple target to display and interact with
+ */
 
 class Target {
 

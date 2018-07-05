@@ -1,5 +1,8 @@
-
-// store, load, save, convert HSB colours
+/* 
+ * Colour
+ * stores, loads, saves, and converts HSB colours
+ */
+ 
 class Colour {
 
   float h;

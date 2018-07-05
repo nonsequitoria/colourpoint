@@ -1,4 +1,8 @@
-
+/*
+ * Demo
+ * displays random targets that can be toggled using the current 
+ * pointing technique
+ */
 
 class Demo {
 

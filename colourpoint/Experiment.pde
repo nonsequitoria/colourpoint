@@ -1,9 +1,11 @@
-
-
+/*
+ * Experiment
+ * Displays a sequence of targets in a certain order and size
+ * for people to click on so we can measure the speed and 
+ * accuracy of a given technique.
+ */
 
 class Experiment {
-
-
 
   // relative logging path (can be absolute)
   String logPath = "logs/";

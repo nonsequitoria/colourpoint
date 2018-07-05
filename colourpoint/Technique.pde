@@ -1,11 +1,16 @@
+/* 
+ * Classes to build and demonstrate different pointing techniques
+ */
 
+
+// This is the base class for all pointing techniques
 class PointingTechnique {
 
   String name = "no technique";
 
   boolean isDown = false;
 
-  // 5%
+  // 5% of image area usually works well
   float minBlobArea = 0.005 * processWidth * processHeight;
 
   // how blurry to make the frame before colour subtractions
@@ -18,7 +23,6 @@ class PointingTechnique {
   int dilateIterations = 4;
 
   void displayName() {
-
     fill(255);
     textAlign(LEFT, TOP);
     textSize(12);
@@ -29,6 +33,48 @@ class PointingTechnique {
     displayName();
   }
 }
+
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// This technique uses first colour blob for cursor position
+// and clicks whenever it sees a second colour blob
+class TwoColour extends PointingTechnique {
+
+  TwoColour() {
+    name = "twocolour";
+  }
+
+  void handle(Blob[][] blobs) {
+
+    displayName();
+
+    // check if at least one blob is found for the first colour 
+    if (blobs[0][0] != null) {
+
+      // use the largest blob of colour 0 (the first colour)
+      Blob b = blobs[0][0];
+
+      // this is the centre position of the blob
+      float x = b.x;
+      float y = b.y;
+
+      //  move the cursor to that position
+      move(x, y);
+
+      // now, check if at least one blob is found for the second colour 
+      if (blobs[1][0] != null) {
+        // if other colour blob is found, then click down
+        down(x, y);
+      } else {
+        // otherwise there was no second colour, so click up
+        up(x, y);
+      }
+    }
+  }
+}
+
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -46,45 +92,43 @@ class RatioClick extends PointingTechnique {
 
     displayName();
 
-    // use the largest blob of colour 0
+    // check if at least one blob is found for the first colour 
     if (blobs[0][0] != null) {
+
+      // use the largest blob of colour 0 (the first colour)
       Blob b = blobs[0][0];
 
+      // this is the centre position of the blob
       float x = b.x;
       float y = b.y;
 
-      float ratio = b.bb.width / float(b.bb.height);
-      
-      float threshold = 1.0;
-
+      //  move the cursor to that position
       move(x, y);
 
+      // calculate the ratio from blob width and height
+      float ratio = b.bb.width / float(b.bb.height);
+
+      // if the ratio is greater than "square" then click
+      float threshold = 1.0;
+
       if (ratio > threshold) {
-        if (!isDown) {
-          down(x, y); 
-          isDown = true;
-        }
-        noFill();
+        down(x, y);
       } else {
-        if (isDown) {
-          up(x, y);
-          isDown = false;
-        }
-        fill(200);
+        up(x, y);
       }
 
-      // visualize feedback  
-      stroke(255);
-      strokeWeight(1);
+      // visualize feedback with some circles 
       noFill();
+      stroke(200);
+      strokeWeight(1);
       ellipse(x, y, threshold * 100, threshold * 100);
-
-      // visualize feedback
+      stroke(255);  
+      strokeWeight(2);
       ellipse(x, y, ratio * 100, ratio * 100);
-
     }
   }
 }
+
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -112,27 +156,27 @@ class ShowBlobFeatures extends PointingTechnique {
       stroke(255);
       ellipse(b.x, b.y, 10, 10); 
 
-      // bounding box
+      // bounding box of blob
       strokeWeight(1);
       noFill();
       stroke(255);
       rect(b.bb.x, b.bb.y, b.bb.width, b.bb.height);
 
-      // convext hull   
+      // convext hull of blob
       stroke(255, 0, 0);
       strokeWeight(6);
       for (PVector v : b.convexHullPoints) {
         point(v.x, v.y);
       }       
 
-      // smplified  points
+      // simplified  points of blob shape
       stroke(0, 255, 0);
       strokeWeight(4);
       for (PVector v : b.simplePoints) {
         point(v.x, v.y);
       }  
 
-      // All points
+      // all points of blob shape
       stroke(0, 0, 255);
       strokeWeight(2);
       for (PVector v : b.points) {

@@ -1,15 +1,15 @@
 {
-  "trackMin0_h": 239.7265625,
-  "trackMin1_h": 256,
-  "trackMax1_h": -1,
-  "trackMax0_h": 250.3249969482422,
+  "trackMin0_h": 212.5,
+  "trackMin1_h": 31.875,
+  "trackMax1_h": 35.07936477661133,
+  "trackMax0_h": 222.4609375,
   "trackExpand": 10,
-  "trackMax1_s": -1,
-  "trackMin1_s": 256,
-  "trackMax0_s": 213.0379638671875,
-  "trackMin0_s": 115.38461303710938,
-  "trackMin0_b": 137,
-  "trackMax1_b": -1,
-  "trackMax0_b": 221,
-  "trackMin1_b": 256
+  "trackMax1_s": 229.68084716796875,
+  "trackMin1_s": 200.2222137451172,
+  "trackMax0_s": 255,
+  "trackMin0_s": 219.5833282470703,
+  "trackMin0_b": 125,
+  "trackMax1_b": 148,
+  "trackMax0_b": 216,
+  "trackMin1_b": 130
 }

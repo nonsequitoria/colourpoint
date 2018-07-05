@@ -1,3 +1,6 @@
+/* 
+ * Simple low pass filter
+ */
 
 /*
   Let's say Pnf the filtered position, Pn the non filtered position and

@@ -88,3 +88,25 @@ void drawPoints(ArrayList<PVector> p) {
   }
   endShape(CLOSE);
 }
+
+// retrieves the complete list of cameras
+void getCameraList() {
+
+  // this sometimes hangs, so make sure "done" eventually appears
+  print("Getting list of cameras ... ");
+  String[] cameras = Capture.list();
+  println("done");
+
+  if (cameras == null) {
+    println("Failed to retrieve the list of available cameras, will try the default...");
+  } else if (cameras.length == 0) {
+    println("There are no cameras available for capture.");
+  } else {
+    println("Available cameras:");
+    printArray(cameras);
+  }
+
+  // exit after getting list
+  // (you need to put a specific camera in the setup code above)
+  exit();
+}

@@ -57,12 +57,12 @@ void pickTechnique(char k) {
     technique = new RatioClick();
     break;
   case '4':
-    technique = new ColourPoint();
+    technique = new TwoColour();
     break;
     
   // add your techniques here ...
   case '5':
-    //technique = ;
+    technique = new MyTechnique();
     break;
   case '6':
     //technique = ;

@@ -1,46 +1,36 @@
+/* 
+ * ColourPoint
+ * A simple colour tracking framework and experiment runner for Processing. 
+ * It was written for an afternoon workshop on "Applied Computer Vision for 
+ * Human-Computer Interaction".
+ *
+ * Detailed information here:
+ * https://github.com/nonsequitoria/colourpoint
+ *
+ */
 
-// look at RatioClick PointingTechnique too
-// (in "Technique" tab)
 
-// start from this example ColourPoint techniques
+
+
+
+// start from this example technique
 // (give it a catchy name too)
-class ColourPoint extends PointingTechnique {
+class MyTechnique extends PointingTechnique {
 
-  ColourPoint() {
-    name = "colourpoint";
+  MyTechnique() {
+    name = "mytechnique";
   }
 
   void handle(Blob[][] blobs) {
 
     displayName();
 
-    // use the largest blob of colour 0
-    if (blobs[0][0] != null) {
-      Blob b = blobs[0][0];
+    // your code goes here
 
-      float x = b.x;
-      float y = b.y;
+    // look at RatioClick or TwoColour techniques for ideas
+    // (in "Technique" tab)
 
-      float ratio = b.bb.width / float(b.bb.height);
 
-      move(x, y);
-
-      float threshold = 0.8;
-
-      // visualize feedback  
-      stroke(255);
-      strokeWeight(1);
-      noFill();
-      ellipse(x, y, threshold * 100, threshold * 100);
-
-      // visualize feedback
-      ellipse(x, y, ratio * 100, ratio * 100);
-
-      // print some debug information
-      if (showDebug) {
-        fill(255);
-        text(ratio, x + 15, y + 15);
-      }
-    }
   }
+  
 }

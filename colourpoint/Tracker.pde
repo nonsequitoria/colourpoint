@@ -1,10 +1,11 @@
+/*
+ * Main class to recognize and track coloured blobs
+ */
+
 
 boolean on = true;
 
-
-
 class Tracker {
-
 
   boolean calibrate = false;
 
@@ -15,13 +16,9 @@ class Tracker {
 
   int trackExpand = 10;
 
-
   ArrayList<Contour> contours;
 
-
   int maxBlobsPerColour = 5;
-
-
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -202,13 +199,12 @@ class Tracker {
         popMatrix();
     }
 
+    pushMatrix();
+    translate(mainWidth, 0);
+
     if (showDebug) {
 
-      pushMatrix();
-      translate(mainWidth, 0);
-
-
-      for (int i = 0; i < blobs.length; i++) 
+      for (int i = 0; i < blobs.length; i++) {
         for (int j = 0; j < blobs[i].length; j++) {
           Blob b = blobs[i][j];
 
@@ -243,10 +239,19 @@ class Tracker {
             text(" size: " + int(b.bb.width) + " x " + int(b.bb.height), x, y);
           }
         }
-
-
-      popMatrix();
+      }
+    } else {
+      fill(0);
+      noStroke();
+      rect(0, 0, mainWidth, mainHeight);
+      fill(255);
+      textAlign(CENTER, CENTER);
+      text("press SPACE to turn debug on", mainWidth/2, mainHeight/2);
+      //rect(10, 10, 100, 100);
     }
+    popMatrix();
+
+
     // call the technique
     if (technique != null)
       technique.handle(blobs);
@@ -280,6 +285,26 @@ class Tracker {
 
   void draw() {
 
+    if (showDebug) {
+      // draw colour samples
+      noFill();
+      int s = 40;
+      for (int i = 0; i < numColours; i++) { 
+        noStroke();
+        fill(trackMin[i].toColor());
+        rect(mainWidth + i * s, mainHeight - s - 1, s/2, s);
+        fill(trackMax[i].toColor());
+        rect(mainWidth + (i * s) + 20, mainHeight - s - 1, s/2, s);
+
+        if (calibrateColour == i && calibrate) {
+          noFill();
+          stroke(255);
+          strokeWeight(1);
+          rect(mainWidth + i * s, mainHeight - s - 1, s, s);
+        }
+      }
+    } 
+
     if (calibrate) {
       stroke(255);
       int t = 4;
@@ -295,28 +320,6 @@ class Tracker {
         strokeWeight(1);
         noFill();
         rect(sampleSize[0], sampleSize[1], sampleSize[2], sampleSize[3]);
-      }
-    }
-
-    if (showDebug) {
-      // draw colour samples
-      noFill();
-      int s = 40;
-      for (int i = 0; i < numColours; i++) { 
-
-
-        noStroke();
-        fill(trackMin[i].toColor());
-        rect(mainWidth + i * s, mainHeight - s - 1, s/2, s);
-        fill(trackMax[i].toColor());
-        rect(mainWidth + (i * s) + 20, mainHeight - s - 1, s/2, s);
-
-        if (calibrateColour == i && calibrate) {
-          noFill();
-          stroke(255);
-          strokeWeight(1);
-          rect(mainWidth + i * s, mainHeight - s - 1, s, s);
-        }
       }
     }
   }

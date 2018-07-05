@@ -1,10 +1,7 @@
 import java.util.*;
 import java.text.*;
 
-
 // writes a custom log file format 
-
-// 
 
 // # all lines begin with timestamp
 // yyyyMMdd,HHmmss.S (e.g. 20130116,130011.438)
